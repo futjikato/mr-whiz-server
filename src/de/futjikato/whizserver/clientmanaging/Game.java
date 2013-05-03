@@ -7,16 +7,4 @@ import java.util.HashMap;
  */
 public class Game {
 
-    protected HashMap<String, Client> clientmap = new HashMap<String, Client>();
-
-    public void addClient(Client client) {
-        clientmap.put(client.getIdentifier(), client);
-    }
-
-    public Client getClient(String ident) {
-        if(clientmap.containsKey(ident))
-            return clientmap.get(ident);
-
-        return null;
-    }
 }

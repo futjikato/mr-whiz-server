@@ -21,21 +21,17 @@ public final class Panel extends Thread {
         System.out.println("Enter a command or `help` if you don´t know what to do.");
         do {
             try {
-                String command = bufferReader.readLine();
+                String command = bufferReader.readLine().trim();
                 Command cmd = Command.getByCommand(command);
 
                 if(cmd == null) {
                     System.out.format("Unknown command %s \n", command);
                 } else {
-                    cmd.execute();
+                    cmd.execute(bufferReader);
                 }
             } catch (IOException e) {
                 interrupt();
             }
         } while(!isInterrupted());
-    }
-
-    public void printWelcomeMsg() {
-
     }
 }
